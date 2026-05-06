@@ -1,25 +1,16 @@
+# Create: Broken Bad +
+An addon for the [Create: Broken Bad](https://www.curseforge.com/minecraft/mc-mods/create-broken-bad) mod.
 
-Installation information
-=======
+## 🛠 Installation & Development Setup
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+To compile this mod from source, you need to manually include the dependency since it is not hosted on a public Maven repository.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
-
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
-
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
-
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+1. Create a `/libs` folder in the root directory of this project.
+2. Download the official **["Create: Broken Bad"](https://www.curseforge.com/minecraft/mc-mods/create-broken-bad)** JAR.
+3. Place the JAR into the `/libs` folder.
+> [!IMPORTANT]
+> Ensure the filename matches the dependency declaration in `build.gradle`. 
+`gradle
+dependencies {
+    implementation "blank:createbb:4.0.1" // Change this version to match your downloaded file
+}`
