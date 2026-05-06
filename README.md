@@ -11,8 +11,7 @@ To compile this mod from source, you need to manually include the dependency sin
 > [!IMPORTANT]
 > Ensure the filename matches the dependency declaration in build.gradle. 
 
-```
-gradle
+```gradle
 dependencies {
     implementation "blank:createbb:4.0.1" // Change this version to match your downloaded file
 }
