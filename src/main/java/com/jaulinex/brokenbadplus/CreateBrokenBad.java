@@ -35,7 +35,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 @Mod(CreateBrokenBad.MODID)
 public class CreateBrokenBad {
     // Define mod id in a common place for everything to reference
-    public static final String MODID = "createbrokenbadplus";
+    public static final String MODID = "createbbplus";
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
     // Create a Deferred Register to hold Blocks which will all be registered under the "createbrokenbadplus" namespace
