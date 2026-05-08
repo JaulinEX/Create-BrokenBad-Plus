@@ -1,4 +1,6 @@
-# <img src="src/main/resources/createbbplus.png" alt="Logo" width="300" height="300">  Create: BrokenBad Plus
+<img alt="Logo" height="200" width="200" src="src/main/resources/createbbplus.png"/>
+
+# Create: BrokenBad Plus
 An addon for the **[Create: Broken Bad](https://www.curseforge.com/minecraft/mc-mods/create-broken-bad)** mod made by *jetpacker06*.
 
 ## 🛠 Development Setup
