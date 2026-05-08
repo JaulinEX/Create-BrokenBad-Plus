@@ -2,7 +2,7 @@
   "required": true,
   "package": "com.jaulinex.brokenbadplus.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": ["MethItemMixin"],
+  "mixins": ["MethItemsMixin$MakeEdibleItems","MethItemsMixin$onBlueCreation","MethItemsMixin$onWhiteCreation"],
   "injectors": {
     "defaultRequire": 1
   },
