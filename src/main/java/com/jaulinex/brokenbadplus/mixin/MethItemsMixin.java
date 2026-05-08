@@ -62,11 +62,11 @@ public class MethItemsMixin{
             FoodProperties methFood = new FoodProperties.Builder()
                     .nutrition(2)
                     .saturationModifier(0.5f)
-                    .alwaysEdible() // Crucial for "medicine" items
+                    .alwaysEdible()
                     .build();
 
             DataComponentMap updatedMap = DataComponentMap.builder()
-                    .addAll(this.components()) // components() is a method in the Item class
+                    .addAll(this.components())
                     .set(DataComponents.FOOD, methFood)
                     .build();
 
