@@ -1,4 +1,4 @@
-package com.jaulinex.brokenbadplus;
+package com.jaulinex.createbbplus;
 
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;

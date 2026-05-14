@@ -1,4 +1,4 @@
-package com.jaulinex.brokenbadplus;
+package com.jaulinex.createbbplus;
 
 import net.minecraft.core.component.DataComponentMap;
 
