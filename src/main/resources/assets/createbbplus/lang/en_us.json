@@ -1,5 +1,8 @@
 {
   "effect.createbbplus.overdose": "Chance to die from an overdose next time: %s",
   "effect.createbbplus.white_rush": "White Rush",
-  "effect.createbbplus.white_withdrawal": "White Withdrawal"
+  "effect.createbbplus.white_withdrawal": "White Withdrawal",
+  "lore.createbbplus.white_meth": "Placeholder",
+  "lore.createbbplus.blue_meth": "Placeholder",
+  "lore.createbbplus.overdose_warning": "Placeholder"
 }
