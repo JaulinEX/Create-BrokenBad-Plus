@@ -3,10 +3,10 @@
   "package": "com.jaulinex.createbbplus.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "MethItemsMixin$UpdateItemComponents",
+    "UtilsMixin$UpdateItemComponents",
+    "MethItemsMixin$onMethUse",
     "MethItemsMixin$onBlueCreation",
     "MethItemsMixin$onWhiteCreation",
-    "MethItemsMixin$onMethUse",
     "MethItemsMixin$onFoodRender"
   ],
   "injectors": {

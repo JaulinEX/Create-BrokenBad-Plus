@@ -1,8 +1,8 @@
 package com.jaulinex.createbbplus.mixin;
 
 
+import com.jaulinex.createbbplus.Utils;
 import com.jaulinex.createbbplus.register.CBBPlusMobEffects;
-import com.jaulinex.createbbplus.utils;
 
 import com.jetpacker06.CreateBrokenBad.block.TrayBlock;
 import com.jetpacker06.CreateBrokenBad.item.MethItem;
@@ -25,7 +25,6 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -38,20 +37,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MethItemsMixin {
-
-    //Setting my backdoor to give an already registered item custom properties
-    @Mixin(Item.class)
-    public static abstract class UpdateItemComponents implements utils.EditItemComponents {
-        @Mutable
-        @Shadow
-        private DataComponentMap components;
-
-        @Override
-        public void
-        setItemComponents(DataComponentMap nMap) {
-            this.components = nMap;
-        }
-    }
 
     //Fixing Eating when looking at a block
     @Mixin(MethItem.class)
@@ -148,7 +133,7 @@ public class MethItemsMixin {
                     .build();
 
             // Casting 'this' to the interface implemented into the Item Class via mixin to reach the hidden 'setFoodComponent' method
-            ((utils.EditItemComponents) this).setItemComponents(updatedMap);
+            ((Utils.Interfaces.EditItemComponents) this).setItemComponents(updatedMap);
         }
     }
 
@@ -181,7 +166,7 @@ public class MethItemsMixin {
                     .set(DataComponents.LORE, methLore)
                     .build();
 
-            ((utils.EditItemComponents) this).setItemComponents(updatedMap);
+            ((Utils.Interfaces.EditItemComponents) this).setItemComponents(updatedMap);
         }
     }
 
