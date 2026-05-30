@@ -8,22 +8,28 @@ import com.jetpacker06.CreateBrokenBad.block.TrayBlock;
 import com.jetpacker06.CreateBrokenBad.item.MethItem;
 
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 
 import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.ModifyVariable;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
@@ -32,6 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MethItemsMixin {
+
     //Setting my backdoor to give an already registered item custom properties
     @Mixin(Item.class)
     public static abstract class UpdateItemComponents implements utils.EditItemComponents {
@@ -61,6 +68,50 @@ public class MethItemsMixin {
             if (!(clickedBlock instanceof TrayBlock.Empty)) {
                 cir.setReturnValue(InteractionResult.PASS);
             }
+        }
+    }
+
+    //Making the food bar change when the player is experiencing withdrawal to reflect the hunger is suffering
+    @Mixin(Gui.class)
+    public static abstract class onFoodRender {
+        @Final
+        @Shadow
+        private static ResourceLocation FOOD_EMPTY_HUNGER_SPRITE;
+        @Final
+        @Shadow
+        private static ResourceLocation FOOD_HALF_HUNGER_SPRITE;
+        @Final
+        @Shadow
+        private static ResourceLocation FOOD_FULL_HUNGER_SPRITE;
+
+        @ModifyVariable(method = "renderFood",
+                at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;blitSprite(Lnet/minecraft/resources/ResourceLocation;IIII)V"),
+                ordinal = 0)
+        private static ResourceLocation modifyEmptySprite(ResourceLocation original, GuiGraphics guiGraphics, Player player) {
+            if (player.hasEffect(CBBPlusMobEffects.WHITE_WITHDRAWAL)) {
+                return FOOD_EMPTY_HUNGER_SPRITE;
+            }
+            return original;
+        }
+
+        @ModifyVariable(method = "renderFood",
+                at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;blitSprite(Lnet/minecraft/resources/ResourceLocation;IIII)V"),
+                ordinal = 1)
+        private static ResourceLocation modifyHalfSprite(ResourceLocation original, GuiGraphics guiGraphics, Player player) {
+            if (player.hasEffect(CBBPlusMobEffects.WHITE_WITHDRAWAL)) {
+                return FOOD_HALF_HUNGER_SPRITE;
+            }
+            return original;
+        }
+
+        @ModifyVariable(method = "renderFood",
+                at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphics;blitSprite(Lnet/minecraft/resources/ResourceLocation;IIII)V"),
+                ordinal = 2)
+        private static ResourceLocation modifyFullSprite(ResourceLocation original, GuiGraphics guiGraphics, Player player) {
+            if (player.hasEffect(CBBPlusMobEffects.WHITE_WITHDRAWAL)) {
+                return FOOD_FULL_HUNGER_SPRITE;
+            }
+            return original;
         }
     }
 

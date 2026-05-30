@@ -6,7 +6,8 @@
     "MethItemsMixin$UpdateItemComponents",
     "MethItemsMixin$onBlueCreation",
     "MethItemsMixin$onWhiteCreation",
-    "MethItemsMixin$onMethUse"
+    "MethItemsMixin$onMethUse",
+    "MethItemsMixin$onFoodRender"
   ],
   "injectors": {
     "defaultRequire": 1
