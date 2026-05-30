@@ -1,5 +1,6 @@
 package com.jaulinex.createbbplus;
 
+import com.jaulinex.createbbplus.register.CBBPlusDamageTypes;
 import com.jaulinex.createbbplus.register.CBBPlusDataAttachments;
 import com.jaulinex.createbbplus.register.CBBPlusMobEffects;
 import org.slf4j.Logger;
@@ -35,6 +36,8 @@ public class CreateBrokenBadPlus {
         CBBPlusMobEffects.register(modEventBus);
         //Registering my custom data attachments
         CBBPlusDataAttachments.register(modEventBus);
+        //Registering my custom damage types
+        CBBPlusDamageTypes.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (CreateBrokenBad) to respond directly to events.
