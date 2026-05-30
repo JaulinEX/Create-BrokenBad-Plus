@@ -4,5 +4,6 @@
   "effect.createbbplus.white_withdrawal": "White Withdrawal",
   "lore.createbbplus.white_meth": "Placeholder",
   "lore.createbbplus.blue_meth": "Placeholder",
-  "lore.createbbplus.overdose_warning": "Placeholder"
+  "lore.createbbplus.overdose_warning": "Placeholder",
+  "death.attack.createbbplus.overdose": "%1$s took too much product and died from an overdose"
 }
