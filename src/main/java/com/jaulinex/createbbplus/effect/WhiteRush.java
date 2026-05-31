@@ -4,6 +4,7 @@ import com.jaulinex.createbbplus.CreateBrokenBadPlus;
 import com.jaulinex.createbbplus.register.CBBPlusDamageTypes;
 import com.jaulinex.createbbplus.register.CBBPlusDataAttachments;
 import com.jaulinex.createbbplus.register.CBBPlusMobEffects;
+
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.ChatFormatting;
@@ -19,7 +20,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-
 
 public class WhiteRush extends MobEffect {
 

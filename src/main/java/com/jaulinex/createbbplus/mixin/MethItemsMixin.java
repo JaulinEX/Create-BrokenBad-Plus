@@ -1,6 +1,5 @@
 package com.jaulinex.createbbplus.mixin;
 
-
 import com.jaulinex.createbbplus.Utils;
 import com.jaulinex.createbbplus.register.CBBPlusMobEffects;
 
@@ -19,10 +18,10 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
-
 import net.minecraft.world.item.component.ItemLore;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
+
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -132,7 +131,7 @@ public class MethItemsMixin {
                     .set(DataComponents.LORE, methLore)
                     .build();
 
-            // Casting 'this' to the interface implemented into the Item Class via mixin to reach the hidden 'setFoodComponent' method
+            // Casting 'this' to the interface implemented into the Item Class via mixin to reach the hidden 'EditItemComponent' method
             ((Utils.Interfaces.EditItemComponents) this).setItemComponents(updatedMap);
         }
     }

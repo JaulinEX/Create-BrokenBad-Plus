@@ -11,10 +11,10 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+
 import net.neoforged.neoforge.common.EffectCure;
 
 import java.util.Set;
-
 
 public class WhiteWithdrawal extends MobEffect {
 
